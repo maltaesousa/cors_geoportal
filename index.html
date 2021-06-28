@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", 'https://sitn.ne.ch/get_pr_from_wkt', true);
+
+        xhr.onreadystatechange = function() { //Appelle une fonction au changement d'état.
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                console.log(this.response);
+            }
+        }
+        xhr.send(JSON.stringify({
+            "geom":"LINESTRING(2564803.02 1208941.417,2564166.145 1208447.139)"
+        }));
+    </script>
+</body>
+</html>
